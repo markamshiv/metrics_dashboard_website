@@ -3,22 +3,14 @@ import datetime
 # from datetime import datetime
 snp_file = r"C:/Users/markp/OneDrive/Documents/Projects/github/metrics_dashboard_website/data/snp_kaggle/sp500_index.csv"
 company_file = r"C:\Users\markp\OneDrive\Documents\Projects\github\metrics_dashboard_website\data\snp_kaggle\sp500_stocks.csv"
-company_info_file = r"C:\Users\markp\OneDrive\Documents\Project\github\metrics_dashboard_website\data\snp_kaggle\sp500_companies.csv"
+
+company_info_file = r"C:\Users\markp\OneDrive\Documents\Projects\github\metrics_dashboard_website\data\snp_kaggle\sp500_companies.csv"
+
 
 # p0 s&p 500 chart
 df_snp = pd.read_csv(snp_file)
 df_company = pd.read_csv(company_file)
 df_company_info = pd.read_csv(company_info_file)
-
-def get_default_start_date():
-    start = datetime.date.today() - datetime.timedelta(days=7)
-    start = start.strftime( '%Y-%m-%d')
-    return start
-
-def get_default_end_date():
-    end = datetime.date.today()
-    end = end.strftime( '%Y-%m-%d')
-    return end
 
 
 def snp_daily_data(start, end):
