@@ -112,6 +112,11 @@ def get_biggest_movers(start, num_companys=3, type='gainers'):
     #calculate the normalized price using the start date price
     df_company['normallized_price'] = 100*(df_company['Price'] - df_company[start_date]) / df_company[start_date]
 
+    #add company name
+    df_company_info = dataUtilities.get_company_information('All')
+    df_company_info['company'] = df_company_info["Longname"]
+    df_company = df_company.merge(df_company_info[['Symbol', 'company']], on='Symbol')
+
     return df_company
 
 
